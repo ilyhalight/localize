@@ -1,0 +1,53 @@
+{
+  "name": "@toil/localize-cli",
+  "description": "a cross-platform utility for interacting with localization files",
+  "version": "0.0.1",
+  "author": "Toil",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyhalight/localize",
+    "directory": "packages/localize-tui"
+  },
+  "bugs": {
+    "url": "https://github.com/ilyhalight/localize/issues"
+  },
+  "type": "module",
+  "bin": "./dist/index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ilyhalight/localize#readme",
+  "keywords": [
+    "localize",
+    "localization",
+    "l10n",
+    "i18n",
+    "cli",
+    "tui"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/spark-md5": "^3.0.5",
+    "tsc-esm-fix": "^3.1.2",
+    "typescript": "^5.6.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "prepack": "bun run ../../scripts/onPrepack.ts",
+    "postpublish": "bun run ../../scripts/onPostPublish.ts"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.1",
+    "@toil/translate": "^1.0.4",
+    "enquirer": "^2.4.1",
+    "spark-md5": "^3.0.2"
+  }
+}
