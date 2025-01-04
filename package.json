@@ -1,0 +1,56 @@
+{
+  "name": "localize",
+  "version": "0.0.1",
+  "author": "Toil",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyhalight/localize"
+  },
+  "devDependencies": {
+    "@sinclair/typebox-codegen": "^0.10.5",
+    "@types/bun": "latest",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.17.0",
+    "eslint-plugin-oxlint": "^0.15.4",
+    "husky": "^9.1.7",
+    "oxlint": "^0.15.4",
+    "typedoc": "^0.27.6",
+    "typedoc-plugin-include-example": "^2.0.2",
+    "typedoc-plugin-missing-exports": "^3.1.0",
+    "typedoc-plugin-rename-defaults": "^0.7.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ilyhalight/localize/issues"
+  },
+  "description": "A library for quick and easy localization",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/ilyhalight/localize#readme",
+  "keywords": [
+    "localize",
+    "localization",
+    "l10n",
+    "i18n"
+  ],
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "bun test",
+    "build:bun": "bun run ./scripts/build.ts",
+    "build:doc": "typedoc --options .config/typedoc.json --tsconfig tsconfig.build.json",
+    "build:all": "bun build:bun && bun build:doc",
+    "update:config": "bun run scripts/update-config.ts",
+    "lint": "bunx oxlint --ignore-path=.oxlintignore && bunx eslint",
+    "prepare": "husky"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ]
+}

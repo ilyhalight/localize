@@ -1,0 +1,4 @@
+docs
+test-scripts
+**/*.d.ts
+**/dist
