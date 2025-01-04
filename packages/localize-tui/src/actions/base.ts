@@ -1,5 +1,6 @@
 import path from "node:path";
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 
 import { Instance } from "../index";
 import { Locale } from "../types/actions";
@@ -35,7 +36,7 @@ export default class BaseAction {
   }
 
   async getAllLocales() {
-    const isExists = await fs.exists(this.localesPath);
+    const isExists = fsSync.existsSync(this.localesPath);
     if (!isExists) {
       await fs.mkdir(this.localesPath, { recursive: true });
     }

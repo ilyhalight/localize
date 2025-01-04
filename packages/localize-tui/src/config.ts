@@ -1,5 +1,6 @@
 import path from "node:path";
 import fs from "node:fs/promises";
+import fsSync from "node:fs";
 import { TranslationService } from "@toil/translate/types/client";
 import { LocalizeConfig } from "./types/config";
 
@@ -161,7 +162,6 @@ export async function parseConfig() {
       encoding: "utf8",
     });
     const parsedConfig = JSON.parse(configContent) as Partial<LocalizeConfig>;
-    console.log(parsedConfig);
     let { service, rootPath, ignoreLocales } = parsedConfig;
     const {
       localesDir = defaultConfig.localesDir,
@@ -175,13 +175,15 @@ export async function parseConfig() {
       rootPath = path.resolve(execPath, rootPath);
     }
 
-    const rootPathExists = rootPath ? await fs.exists(rootPath) : false;
+    const rootPathExists = rootPath ? fsSync.existsSync(rootPath) : false;
     if (!rootPath || !rootPathExists) {
       rootPath = defaultConfig.rootPath;
     }
 
     const localesPath = path.resolve(rootPath, localesDir);
-    const localesDirExists = localesDir ? await fs.exists(localesPath) : false;
+    const localesDirExists = localesDir
+      ? fsSync.existsSync(localesPath)
+      : false;
     if (!localesDirExists) {
       await fs.access(rootPath, fs.constants.O_RDWR);
     }

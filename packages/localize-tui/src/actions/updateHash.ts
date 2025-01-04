@@ -1,4 +1,5 @@
 import path from "node:path";
+import fs from "node:fs/promises";
 import { styleText } from "node:util";
 
 import SparkMD5 from "spark-md5";
@@ -20,8 +21,8 @@ export default class UpdateHashAction extends BaseAction {
     );
 
     const { rootPath, hashFile } = this.instance.config;
-    const hashesPath = path.resolve(rootPath, hashFile);
-    await Bun.write(hashesPath, prettyStringify(hashes));
+    const hashFilePath = path.resolve(rootPath, hashFile);
+    await fs.writeFile(hashFilePath, prettyStringify(hashes));
 
     const localesCount = Object.keys(hashes).length.toString();
     console.log(
