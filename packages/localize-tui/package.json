@@ -47,7 +47,6 @@
   "dependencies": {
     "@inquirer/prompts": "^7.2.1",
     "@toil/translate": "^1.0.4",
-    "enquirer": "^2.4.1",
     "spark-md5": "^3.0.2"
   }
 }
