@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { parseConfig } from "./config";
 import { getAction } from "./actions/index";
 import { LocalizeConfig } from "./types/config";
