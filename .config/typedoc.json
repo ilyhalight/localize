@@ -1,7 +1,7 @@
 {
   "entryPoints": ["../packages/*"],
   "entryPointStrategy": "packages",
-  "name": "vot.js",
+  "name": "localize",
   "out": "../docs",
   "includeVersion": true,
   "plugin": [
