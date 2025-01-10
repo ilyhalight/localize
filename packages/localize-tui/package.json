@@ -40,10 +40,6 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "scripts": {
-    "prepack": "bun run ../../scripts/onPrepack.ts",
-    "postpublish": "bun run ../../scripts/onPostPublish.ts"
-  },
   "dependencies": {
     "@inquirer/prompts": "^7.2.1",
     "@toil/translate": "^1.0.4",
