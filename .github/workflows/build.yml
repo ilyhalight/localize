@@ -18,20 +18,11 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v3
-
       - name: Install packages 🔧
         run: bun install
 
       - name: Build 🚧
         run: bun build:all
-
-      - name: Upload Package artifact 🚀
-        uses: actions/upload-artifact@v4
-        with:
-          name: vot.js
-          path: packages/*/dist/*
 
       - name: Upload Docs artifact 🚀
         id: deployment
