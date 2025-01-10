@@ -57,7 +57,7 @@ Any of these parameters can be removed.
 
 ## FAQ
 
-Почему используется `spark-md5`, а не `crypto-js` или нативная реализация из NodeJS?
+Why is `spark-md5` used and not `crypto-js` or the native implementation from NodeJS?
 
-1. это банально быстрее (в ~1.35 раза)
-2. нативная реализация md5 появилась, только, в NodeJS 21+, что еще сильнее увеличило бы требования для запуска
+1. it's faster (~1.35 times)
+2. The native md5 implementation appeared only in NodeJS 21+, which would further increase the startup requirements
