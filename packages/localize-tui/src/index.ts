@@ -9,7 +9,7 @@ export class Instance {
   async run() {
     this.config = await parseConfig();
 
-    const Action = await getAction();
+    const Action = await getAction(this.config);
     await new Action(this).run();
   }
 }

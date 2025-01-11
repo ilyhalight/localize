@@ -142,6 +142,8 @@ const getDefaultConfig = (): LocalizeConfig => {
     localesDir: "locales",
     hashFile: "hashes.json",
     ignoreLocales: [],
+    withTypes: false,
+    typesFile: "locales.ts",
     service: TranslationService.yandexbrowser,
   };
 };
@@ -162,10 +164,11 @@ export async function parseConfig() {
       encoding: "utf8",
     });
     const parsedConfig = JSON.parse(configContent) as Partial<LocalizeConfig>;
-    let { service, rootPath, ignoreLocales } = parsedConfig;
+    let { service, rootPath, ignoreLocales, withTypes } = parsedConfig;
     const {
       localesDir = defaultConfig.localesDir,
       hashFile = defaultConfig.hashFile,
+      typesFile = defaultConfig.typesFile,
     } = parsedConfig;
     if (!service || !Object.values(TranslationService).includes(service)) {
       service = defaultConfig.service;
@@ -192,12 +195,18 @@ export async function parseConfig() {
       ignoreLocales = defaultConfig.ignoreLocales;
     }
 
+    if (typeof withTypes !== "boolean") {
+      withTypes = defaultConfig.withTypes;
+    }
+
     return {
       service,
       rootPath,
       localesDir,
       ignoreLocales,
       hashFile,
+      withTypes,
+      typesFile,
     };
   } catch {
     console.error(`Failed to parse config file: ${configFile}`);

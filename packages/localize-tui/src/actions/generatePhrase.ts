@@ -5,6 +5,8 @@ import TranslationClient from "@toil/translate";
 
 import BaseAction from "./base";
 import UpdateHashAction from "./updateHash";
+import GenerateTypesAction from "./generateTypes";
+
 import { Language, supportedLanguages } from "../config";
 
 export default class GeneratePhraseAction extends BaseAction {
@@ -85,6 +87,7 @@ export default class GeneratePhraseAction extends BaseAction {
     );
     if (needAddToJSON) {
       await new UpdateHashAction(this.instance).run();
+      await new GenerateTypesAction(this.instance).run();
     }
   }
 }

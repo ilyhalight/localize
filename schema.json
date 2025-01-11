@@ -23,6 +23,12 @@
         "service": {
           "$ref": "#/definitions/TranslationService"
         },
+        "withTypes": {
+          "type": "boolean"
+        },
+        "typesFile": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }

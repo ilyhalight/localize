@@ -4,6 +4,7 @@ import { input, confirm } from "@inquirer/prompts";
 
 import BaseAction from "./base";
 import UpdateHashAction from "./updateHash";
+import GenerateTypesAction from "./generateTypes";
 
 export default class DeletePhraseAction extends BaseAction {
   async run() {
@@ -40,5 +41,6 @@ export default class DeletePhraseAction extends BaseAction {
       )}" from ${styleText("yellow", localesCount)} locales!`,
     );
     await new UpdateHashAction(this.instance).run();
+    await new GenerateTypesAction(this.instance).run();
   }
 }
