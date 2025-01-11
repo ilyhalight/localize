@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/ConfigSchema",
+  "definitions": {
+    "ConfigSchema": {
+      "type": "object",
+      "properties": {
+        "rootPath": {
+          "type": "string"
+        },
+        "localesDir": {
+          "type": "string"
+        },
+        "hashFile": {
+          "type": "string"
+        },
+        "ignoreLocales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "service": {
+          "$ref": "#/definitions/TranslationService"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TranslationService": {
+      "type": "string",
+      "enum": ["yandexbrowser", "yandexcloud", "yandextranslate", "msedge"]
+    }
+  }
+}

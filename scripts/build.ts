@@ -19,3 +19,4 @@ async function build(packageName: string, extraScripts: string[] = []) {
 }
 
 await build("localize-tui");
+await $`bun ./scripts/schema-gen.ts`;

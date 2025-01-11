@@ -20,6 +20,7 @@ Example of `localize.config.json`:
 
 ```json
 {
+  "$schema": "https://raw.githubusercontent.com/ilyhalight/localize/refs/heads/master/schema.json",
   "rootPath": "./src",
   "localesDir": "locales",
   "hashFile": "hashes.json",

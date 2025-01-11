@@ -6,4 +6,7 @@ export type LocalizeConfig = {
   hashFile: string;
   ignoreLocales: string[];
   service: TranslationService;
+  $schema?: string; // json schema
 };
+
+export type ConfigSchema = Partial<LocalizeConfig>;
