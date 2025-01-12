@@ -8,11 +8,9 @@ Some utils for quick and easy localization
 
 ## Usage
 
-To use tui utility run:
+Read more about usage:
 
-```bash
-bunx @toil/localize-tui
-```
+- [localize-tui](./packages/localize-tui/README.md)
 
 ## Build
 

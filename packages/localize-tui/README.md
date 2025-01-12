@@ -25,6 +25,8 @@ Example of `localize.config.json`:
   "localesDir": "locales",
   "hashFile": "hashes.json",
   "ignoreLocales": ["de"],
+  "typesFile": "locales.ts",
+  "withTypes": true,
   "service": "yandexbrowser"
 }
 ```
@@ -36,6 +38,10 @@ Example of `localize.config.json`:
 `hashFile` - the name of the file with translation hashes
 
 `ignoreLocales` - localization files that will be ignored by the utility
+
+`typesFile` - the name of the typescript file with localize types
+
+`withTypes` - generate file with typescript localize types
 
 `service` - a service for receiving a translate. In this case, Yandex Translate is used. Other available services:
 
