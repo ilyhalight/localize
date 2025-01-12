@@ -1,3 +1,7 @@
+## localize-tui 0.0.5
+
+- Added support generating localize types. To enable set `withTypes` to true in localize config
+
 ## localize-tui 0.0.4
 
 - Added sort locales for hashes.json
