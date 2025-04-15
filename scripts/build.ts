@@ -1,7 +1,7 @@
 import path from "node:path";
 import { $ } from "bun";
 
-import { generateTypebox } from "./typebox-gen";
+import { GenX } from "@toil/typebox-genx";
 
 async function build(packageName: string, extraScripts: string[] = []) {
   console.log(`Building @toil/${packageName}...`);
@@ -14,7 +14,20 @@ async function build(packageName: string, extraScripts: string[] = []) {
   }
 
   await $`tsc --project tsconfig.build.json --outdir ./dist && tsc-esm-fix --tsconfig tsconfig.build.json`;
-  await generateTypebox(packagePath);
+  if (packageName === "localize-tui") {
+    return $.cwd("./");
+  }
+
+  const genx = new GenX({
+    root: packagePath,
+    workspaceRoot: path.join(__dirname, ".."),
+  });
+  await $`mkdir dist/typebox`;
+  await genx.generateByDir(
+    path.resolve(packagePath, "src", "types"),
+    path.resolve(packagePath, "dist", "typebox"),
+  );
+
   $.cwd("./");
 }
 
