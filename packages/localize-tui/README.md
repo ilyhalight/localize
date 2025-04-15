@@ -39,16 +39,19 @@ Example of `localize.config.json`:
 
 `ignoreLocales` - localization files that will be ignored by the utility
 
-`typesFile` - the name of the typescript file with localize types
+`typesFile` - relative path from `localeDir` to generated localize types file
 
 `withTypes` - generate file with typescript localize types
 
 `service` - a service for receiving a translate. In this case, Yandex Translate is used. Other available services:
 
-- `yandexbrowser` - Yandex Translate (free)
-- `yandexcloud` - YandexCloud (free)
-- `yandextranslate` - Yandex Translate (free)
-- `msedge` - Microsoft Edge Translate (free)
+- `yandexbrowser` - Yandex Translate
+- `yandexcloud` - YandexCloud
+- `yandextranslate` - Yandex Translate
+- `yandexgpt` - Yandex Translate
+- `msedge` - Microsoft Edge Translate
+- `bing` - Bing Translate
+- `libretranslate` - Libre Translate
 
 Any of these parameters can be removed.
 

@@ -1,7 +1,7 @@
 {
   "name": "@toil/localize-tui",
   "description": "a cross-platform utility for interacting with localization files",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Toil",
   "license": "MIT",
   "repository": {
@@ -37,14 +37,14 @@
   "devDependencies": {
     "@types/spark-md5": "^3.0.5",
     "tsc-esm-fix": "^3.1.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.8.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.2.1",
-    "@toil/translate": "^1.0.4",
+    "@inquirer/prompts": "^7.4.1",
+    "@toil/translate": "^1.0.7",
     "spark-md5": "^3.0.2"
   }
 }
