@@ -37,7 +37,15 @@
     },
     "TranslationService": {
       "type": "string",
-      "enum": ["yandexbrowser", "yandexcloud", "yandextranslate", "msedge"]
+      "enum": [
+        "yandexbrowser",
+        "yandexcloud",
+        "yandextranslate",
+        "yandexgpt",
+        "msedge",
+        "bing",
+        "libretranslate"
+      ]
     }
   }
 }
