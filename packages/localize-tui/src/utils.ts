@@ -99,26 +99,3 @@ export function genFlatObjectKeysType(
 
   return types;
 }
-
-const data = genFlatObjectKeysType({
-  test: "hello",
-  langs: {
-    en: "hello",
-    ru: "привет",
-    grello: {
-      us: "hello123",
-      ea: "asd",
-      deeper: {
-        deeper2: "deeper2",
-      },
-      howAboutArray: ["looks", "good!"],
-    },
-  },
-  deeper: {
-    deeper2: "deeper2",
-  },
-  darl: 123,
-  ages: [1366, 2555],
-});
-
-console.log(data);

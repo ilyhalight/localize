@@ -1,3 +1,7 @@
+## localize-tui 0.0.7
+
+- Removed test value
+
 ## localize-tui 0.0.6
 
 - Added `Phrase` and `FlatPhrases` type to generated phrases
