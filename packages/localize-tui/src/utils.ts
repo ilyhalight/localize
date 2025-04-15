@@ -4,11 +4,12 @@ export function prettyStringify(content: any) {
   return result ? result + "\n" : result;
 }
 
+export const clearKey = (key: string) =>
+  /^(\w|\d|_)+$/.exec(key) ? key : `"${key.replaceAll('"', '\\"')}"`;
+
 export const toType = ([key, value]: [string, unknown], deep = 0): string => {
   const valueType = typeof value;
-  const cleanKey = /^(\w|\d|_)+$/.exec(key)
-    ? key
-    : `"${key.replaceAll('"', '\\"')}"`;
+  const cleanKey = clearKey(key);
   if (valueType !== "object") {
     return `${cleanKey}: ${valueType};`;
   }
@@ -58,3 +59,66 @@ export function genObjectTypes(data: Record<string, unknown>, deep = 0) {
   }
   return `{${types}${lf}};`;
 }
+
+export function genFlatObjectKeysType(
+  data: Record<string, unknown>,
+  deep = 0,
+  endWithSemicolon = true,
+) {
+  if (!data || !Object.keys(data).length) {
+    return "never";
+  }
+
+  let types = "";
+  const ls = `\n${getSpaces(2 * (deep + 1))}| `;
+  for (const [key, val] of Object.entries(data)) {
+    if (typeof val !== "object" || val === null) {
+      types += `${ls}"${key}"`;
+      continue;
+    }
+
+    const flatKeys = genFlatObjectKeysType(
+      val as Record<string, unknown>,
+      deep,
+      false,
+    )
+      .split(ls)
+      .slice(1)
+      .reduce(
+        (result, flatLine) =>
+          (result += `${ls}"${key}.${flatLine.replace(/^"/, "")}`),
+        "",
+      );
+
+    types += flatKeys;
+  }
+
+  if (endWithSemicolon) {
+    types += ";";
+  }
+
+  return types;
+}
+
+const data = genFlatObjectKeysType({
+  test: "hello",
+  langs: {
+    en: "hello",
+    ru: "привет",
+    grello: {
+      us: "hello123",
+      ea: "asd",
+      deeper: {
+        deeper2: "deeper2",
+      },
+      howAboutArray: ["looks", "good!"],
+    },
+  },
+  deeper: {
+    deeper2: "deeper2",
+  },
+  darl: 123,
+  ages: [1366, 2555],
+});
+
+console.log(data);
