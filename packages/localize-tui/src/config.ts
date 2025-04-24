@@ -143,6 +143,7 @@ const getDefaultConfig = (): LocalizeConfig => {
     hashFile: "hashes.json",
     ignoreLocales: [],
     withTypes: false,
+    parseDotNotation: true,
     typesFile: "locales.ts",
     service: TranslationService.yandexbrowser,
   };
@@ -164,7 +165,8 @@ export async function parseConfig() {
       encoding: "utf8",
     });
     const parsedConfig = JSON.parse(configContent) as Partial<LocalizeConfig>;
-    let { service, rootPath, ignoreLocales, withTypes } = parsedConfig;
+    let { service, rootPath, ignoreLocales, withTypes, parseDotNotation } =
+      parsedConfig;
     const {
       localesDir = defaultConfig.localesDir,
       hashFile = defaultConfig.hashFile,
@@ -199,6 +201,10 @@ export async function parseConfig() {
       withTypes = defaultConfig.withTypes;
     }
 
+    if (typeof parseDotNotation !== "boolean") {
+      parseDotNotation = defaultConfig.parseDotNotation;
+    }
+
     return {
       service,
       rootPath,
@@ -206,6 +212,7 @@ export async function parseConfig() {
       ignoreLocales,
       hashFile,
       withTypes,
+      parseDotNotation,
       typesFile,
     };
   } catch {

@@ -8,6 +8,7 @@ export type LocalizeConfig = {
   service: TranslationService;
   withTypes: boolean;
   typesFile: string;
+  parseDotNotation: boolean;
   $schema?: string; // json schema
 };
 

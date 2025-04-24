@@ -29,6 +29,9 @@
         "typesFile": {
           "type": "string"
         },
+        "parseDotNotation": {
+          "type": "boolean"
+        },
         "$schema": {
           "type": "string"
         }

@@ -28,6 +28,31 @@ export default class BaseAction {
     return JSON.parse(fileContent) as Locale;
   }
 
+  async updateLocale(
+    filename: string,
+    rawPhrase: string,
+    localizedPhrase: string,
+  ) {
+    const localeData = await this.loadLocale(filename);
+    const { parseDotNotation } = this.instance.config;
+    if (!parseDotNotation || !rawPhrase.includes(".")) {
+      localeData[rawPhrase] = localizedPhrase;
+      return await this.saveLocale(filename, localeData);
+    }
+
+    let localeObj = localeData;
+    const keys = rawPhrase.split(".");
+    const lastKey = keys.pop()!;
+    for (const key of keys) {
+      localeObj[key] ??= {};
+      localeObj = localeObj[key] as Locale;
+    }
+
+    localeObj[lastKey] = localizedPhrase;
+
+    return await this.saveLocale(filename, localeData);
+  }
+
   async saveLocale(filename: string, content: Locale) {
     return await fs.writeFile(
       path.resolve(this.localesPath, filename),

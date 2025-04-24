@@ -51,7 +51,6 @@ export default class GeneratePhraseAction extends BaseAction {
     await Promise.all(
       files.map(async (file) => {
         const locale = file.replace(".json", "") as Language;
-        const localeData = await this.loadLocale(file);
         const localizedPhrase =
           locale === "en" ? englishPhrase : await translate(locale);
         if (!needAddToJSON) {
@@ -67,8 +66,7 @@ export default class GeneratePhraseAction extends BaseAction {
           return;
         }
 
-        localeData[rawPhrase] = localizedPhrase;
-        await this.saveLocale(file, localeData);
+        await this.updateLocale(file, rawPhrase, localizedPhrase);
       }),
     );
 
