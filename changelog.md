@@ -1,3 +1,31 @@
+## localize-tui 0.0.8
+
+- Added option `parseDotNotation` to parse dot notation in keys (default: `true`)
+
+example with phrase "key1.key2.key3":
+
+`"parseDotNotation": true`:
+
+```json
+{
+  "key1": {
+    "key2": {
+      "key3": "phrase"
+    }
+  }
+}
+```
+
+`"parseDotNotation": false`:
+
+```json
+{
+  "key1.key2.key3": "phrase"
+}
+```
+
+- Bump depends
+
 ## localize-tui 0.0.7
 
 - Removed test value
