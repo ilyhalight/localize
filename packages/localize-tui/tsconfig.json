@@ -4,5 +4,5 @@
     "lib": ["ESNext"],
     "rootDir": "./src"
   },
-  "exclude": ["./locales"]
+  "exclude": ["./locales", "./dist"]
 }
