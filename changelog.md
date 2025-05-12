@@ -1,3 +1,8 @@
+## localize-tui 0.0.9
+
+- Added support **Opera Aria AI** for translation `service`
+- Fixed LibreTranslate
+
 ## localize-tui 0.0.8
 
 - Added option `parseDotNotation` to parse dot notation in keys (default: `true`)
