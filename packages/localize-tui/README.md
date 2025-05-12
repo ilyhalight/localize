@@ -77,6 +77,7 @@ For example, if `rawPhrase` is "key1.key2.key3" and `localizedPhrase` is "phrase
 - `msedge` - Microsoft Edge Translate
 - `bing` - Bing Translate
 - `libretranslate` - Libre Translate
+- `operaaria` - Opera Aria AI
 
 Any of these parameters can be removed.
 
