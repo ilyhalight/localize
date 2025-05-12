@@ -8,6 +8,7 @@ import UpdateHashAction from "./updateHash";
 import GenerateTypesAction from "./generateTypes";
 
 import { Language, supportedLanguages } from "../config";
+import { TranslationService } from "@toil/translate/types/client";
 
 export default class GeneratePhraseAction extends BaseAction {
   async run() {
@@ -35,9 +36,11 @@ export default class GeneratePhraseAction extends BaseAction {
       console.log(styleText("yellow", "Generated locales:"));
     }
     const files = await this.getAllLocales();
-
+    const allowUnsafeEval =
+      this.instance.config.service === TranslationService.libretranslate;
     const translationClient = new TranslationClient({
       service: this.instance.config.service,
+      allowUnsafeEval,
     });
 
     const translate = async (locale: string) => {
