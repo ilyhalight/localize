@@ -16,7 +16,7 @@
     "oxlint": "^0.16.10",
     "prettier": "^3.5.3",
     "typedoc": "^0.28.4",
-    "typedoc-plugin-include-example": "^2.1.2",
+    "typedoc-plugin-include-example": "^3.0.2",
     "typedoc-plugin-missing-exports": "^4.0.0",
     "typedoc-plugin-rename-defaults": "^0.7.3",
     "typescript": "^5.8.3",
