@@ -13,7 +13,7 @@
     "eslint": "^9.26.0",
     "eslint-plugin-oxlint": "^0.16.10",
     "husky": "^9.1.7",
-    "oxlint": "^0.16.10",
+    "oxlint": "^1.36.0",
     "prettier": "^3.5.3",
     "typedoc": "^0.28.4",
     "typedoc-plugin-include-example": "^2.1.2",
