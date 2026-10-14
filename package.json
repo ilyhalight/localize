@@ -1,60 +1,59 @@
 {
   "name": "localize",
   "version": "0.0.1",
+  "private": true,
+  "description": "A library for quick and easy localization",
+  "keywords": [
+    "i18n",
+    "l10n",
+    "localization",
+    "localize"
+  ],
+  "homepage": "https://github.com/ilyhalight/localize#readme",
+  "bugs": {
+    "url": "https://github.com/ilyhalight/localize/issues"
+  },
+  "license": "MIT",
   "author": "Toil",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ilyhalight/localize"
   },
-  "devDependencies": {
-    "@eslint/js": "^9.26.0",
-    "@toil/typebox-genx": "^0.1.0",
-    "@types/bun": "latest",
-    "eslint": "^9.26.0",
-    "eslint-plugin-oxlint": "^0.16.10",
-    "husky": "^9.1.7",
-    "oxlint": "^0.16.10",
-    "prettier": "^3.5.3",
-    "typedoc": "^0.28.4",
-    "typedoc-plugin-include-example": "^2.1.2",
-    "typedoc-plugin-missing-exports": "^4.0.0",
-    "typedoc-plugin-rename-defaults": "^0.7.3",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.32.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "bugs": {
-    "url": "https://github.com/ilyhalight/localize/issues"
-  },
-  "description": "A library for quick and easy localization",
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/ilyhalight/localize#readme",
-  "keywords": [
-    "localize",
-    "localization",
-    "l10n",
-    "i18n"
-  ],
-  "license": "MIT",
-  "private": true,
+  "type": "module",
   "scripts": {
     "test": "bun test",
     "build:bun": "bun run ./scripts/build.ts",
     "build:doc": "typedoc --options .config/typedoc.json --tsconfig tsconfig.build.json",
     "build:all": "bun build:bun && bun build:doc",
     "update:config": "bun run scripts/update-config.ts",
-    "lint": "bunx oxlint --ignore-path=.oxlintignore && bunx eslint",
-    "prepare": "husky"
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "bunx oxlint",
+    "lint:fix": "bunx oxlint --fix"
   },
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
-    "ts-json-schema-generator": "^2.4.0"
+    "ts-json-schema-generator": "^2.9.0"
+  },
+  "devDependencies": {
+    "@toil/typebox-genx": "^0.1.0",
+    "@types/bun": "latest",
+    "lefthook": "^2.2.2",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "prettier": "^3.5.3",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-include-example": "^3.0.2",
+    "typedoc-plugin-missing-exports": "^4.1.4",
+    "typedoc-plugin-rename-defaults": "^0.7.3",
+    "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
   }
 }

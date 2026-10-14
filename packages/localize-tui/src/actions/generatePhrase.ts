@@ -58,10 +58,7 @@ export default class GeneratePhraseAction extends BaseAction {
           locale === "en" ? englishPhrase : await translate(locale);
         if (!needAddToJSON) {
           console.log(
-            `  - ${supportedLanguages[locale]} (${styleText(
-              "gray",
-              file,
-            )}): '${styleText(
+            `  - ${supportedLanguages[locale]} (${styleText("gray", file)}): '${styleText(
               "gray",
               `"${rawPhrase}": "${localizedPhrase}"`,
             )}'`,
@@ -75,16 +72,10 @@ export default class GeneratePhraseAction extends BaseAction {
 
     const localesCount = files.length.toString();
     console.log(
-      `${styleText(
-        "green",
-        "√",
-      )} Successfully generated new phrase "${styleText(
+      `${styleText("green", "√")} Successfully generated new phrase "${styleText(
         "gray",
         rawPhrase,
-      )}" (${styleText("gray", englishPhrase)}) for ${styleText(
-        "yellow",
-        localesCount,
-      )} locales!`,
+      )}" (${styleText("gray", englishPhrase)}) for ${styleText("yellow", localesCount)} locales!`,
     );
     if (needAddToJSON) {
       await new UpdateHashAction(this.instance).run();

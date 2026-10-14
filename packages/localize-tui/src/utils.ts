@@ -36,10 +36,7 @@ export const toType = ([key, value]: [string, unknown], deep = 0): string => {
     return `${cleanKey}: ${arrType};`;
   }
 
-  return `${cleanKey}: ${genObjectTypes(
-    value as Record<string, unknown>,
-    deep + 1,
-  )}`;
+  return `${cleanKey}: ${genObjectTypes(value as Record<string, unknown>, deep + 1)}`;
 };
 
 const getSpaces = (count: number) => {

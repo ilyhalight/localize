@@ -1,3 +1,19 @@
+## localize-tui 0.1.0
+
+- Bump TypeScript to 7.x
+- Bump required Node version to 20.12+
+- Bump depends
+
+## Workspace
+
+- Added `fmt`, `fmt:check`, `lint:fix` scripts
+- Removed Eslint (replaced with stable oxlint)
+- Removed Typebox types generator from build script
+- Replaced Prettier -> oxfmt
+- Replaced Husky -> lefthook
+- Bump TypeScript to 7.x
+- Bump depends
+
 ## localize-tui 0.0.9
 
 - Added support **Opera Aria AI** for translation `service`
