@@ -1,5 +1,9 @@
+import { Locale } from "./types/actions";
+
+export const DEFAULT_DELIMITER = "|||||";
+
 // JSON.stringify with new line in the end and double spaces before keys
-export function prettyStringify(content: any) {
+export function prettyStringify(content: unknown) {
   const result = JSON.stringify(content, null, 2);
   return result ? result + "\n" : result;
 }
@@ -95,4 +99,64 @@ export function genFlatObjectKeysType(
   }
 
   return types;
+}
+
+export function localeToFlat(
+  locale: Locale,
+  delimiter = DEFAULT_DELIMITER,
+): Record<string, string> {
+  if (
+    !Object.values(locale).some(
+      (val) => typeof val === "object" && val !== null,
+    )
+  ) {
+    return locale as Record<string, string>;
+  }
+
+  const result: Record<string, string> = {};
+  const traverse = (obj: Record<string, unknown>, parentKey = "") => {
+    for (const [key, value] of Object.entries(obj)) {
+      if (typeof value !== "object" || value === null) {
+        result[parentKey + key] = String(value);
+        continue;
+      }
+
+      traverse(value as Record<string, unknown>, parentKey + key + delimiter);
+    }
+  };
+
+  traverse(locale);
+  return result;
+}
+
+export function flatToLocale(
+  flat: Record<string, string>,
+  delimiter = DEFAULT_DELIMITER,
+): Locale {
+  const result: Locale = Object.create(null);
+  for (const [flatKey, value] of Object.entries(flat)) {
+    const keys = flatKey.split(delimiter);
+    const lastKey = keys.pop()!;
+    let current = result;
+    for (const k of keys) {
+      const next = current[k];
+      if (next === undefined) {
+        const child: Locale = Object.create(null);
+        current[k] = child;
+        current = child;
+        continue;
+      }
+
+      if (typeof next !== "object" || next === null) {
+        throw new Error(
+          `Key conflict: "${k}" in "${flatKey}" is already a phrase`,
+        );
+      }
+
+      current = next as Locale;
+    }
+    current[lastKey] = value;
+  }
+
+  return result;
 }

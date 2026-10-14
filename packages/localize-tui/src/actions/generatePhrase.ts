@@ -2,13 +2,13 @@ import { styleText } from "node:util";
 
 import { input, confirm } from "@inquirer/prompts";
 import TranslationClient from "@toil/translate";
+import { TranslationService } from "@toil/translate/types/client";
 
 import BaseAction from "./base";
 import UpdateHashAction from "./updateHash";
 import GenerateTypesAction from "./generateTypes";
 
 import { Language, supportedLanguages } from "../config";
-import { TranslationService } from "@toil/translate/types/client";
 
 export default class GeneratePhraseAction extends BaseAction {
   async run() {
