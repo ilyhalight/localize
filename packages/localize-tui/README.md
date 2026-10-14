@@ -88,7 +88,7 @@ Any of these parameters can be removed.
 - [x] Get all locales
 - [x] Update hashes
 - [x] Generate locale files
-- [] Diff locales
+- [x] Diff locales
 - [] Fun languages
 
 ## FAQ

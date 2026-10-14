@@ -1,5 +1,7 @@
 ## localize-tui 0.1.0
 
+- Added support to generate locales
+- Added support to diff locales
 - Bump TypeScript to 7.x
 - Bump required Node version to 20.12+
 - Bump depends

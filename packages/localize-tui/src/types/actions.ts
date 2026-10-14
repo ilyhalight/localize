@@ -5,6 +5,7 @@ export enum Action {
   GetAllLocales = "get_all_locales",
   GenerateTypes = "generate_types",
   UpdateHash = "update_hash",
+  DiffLocale = "diff_locale",
   Exit = "exit",
 }
 

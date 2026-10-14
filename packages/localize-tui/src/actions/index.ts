@@ -11,6 +11,7 @@ import ExitAction from "./exit";
 import { Action } from "../types/actions";
 import { LocalizeConfig } from "../types/config";
 import GenerateLocaleAction from "./generateLocale";
+import DiffLocaleAction from "./diffLocale";
 
 async function getAction(config: LocalizeConfig) {
   const genTypesAnswer = config.withTypes
@@ -25,6 +26,7 @@ async function getAction(config: LocalizeConfig) {
       { name: "Get all locales", value: Action.GetAllLocales },
       ...genTypesAnswer,
       { name: "Update hashes", value: Action.UpdateHash },
+      { name: "Diff locale", value: Action.DiffLocale },
       { name: styleText("gray", "Exit"), value: Action.Exit },
     ],
     loop: false,
@@ -45,6 +47,7 @@ const actions = {
   [Action.GetAllLocales]: GetAllLocalesAction,
   [Action.GenerateTypes]: GenerateTypesAction,
   [Action.UpdateHash]: UpdateHashAction,
+  [Action.DiffLocale]: DiffLocaleAction,
   [Action.Exit]: ExitAction,
 };
 
