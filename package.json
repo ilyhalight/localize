@@ -41,7 +41,6 @@
     "ts-json-schema-generator": "^2.9.0"
   },
   "devDependencies": {
-    "@toil/typebox-genx": "^0.1.0",
     "@types/bun": "latest",
     "lefthook": "^2.2.2",
     "oxfmt": "^0.73.0",
