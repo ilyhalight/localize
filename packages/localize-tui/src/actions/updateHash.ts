@@ -22,7 +22,7 @@ export default class UpdateHashAction extends BaseAction {
 
     const { rootPath, hashFile } = this.instance.config;
     const hashFilePath = path.resolve(rootPath, hashFile);
-    const hashData = Object.fromEntries(Object.entries(hashes).sort());
+    const hashData = Object.fromEntries(Object.entries(hashes).toSorted());
     await fs.writeFile(hashFilePath, prettyStringify(hashData));
 
     const localesCount = Object.keys(hashes).length.toString();
