@@ -13,7 +13,6 @@
 - Removed Typebox types generator from build script
 - Replaced Prettier -> oxfmt
 - Replaced Husky -> lefthook
-- Bump TypeScript to 7.x
 - Bump depends
 
 ## localize-tui 0.0.9
